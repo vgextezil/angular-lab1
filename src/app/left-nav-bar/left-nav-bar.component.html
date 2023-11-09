@@ -1,0 +1,25 @@
+<ng-container *ngIf="isListView; else cardView">
+  <ul>
+    <li *ngFor="let person of obj">
+      <ng-container [ngSwitch]="person.age">
+        <div *ngSwitchCase="30">
+          <a>{{ person.name }}</a>
+          <br />
+          <a>{{ person.age }} first case</a>
+        </div>
+        <div *ngSwitchCase="12">
+          <a>{{ person.name }}</a>
+          <br />
+          <a>{{ person.age }} second case</a>
+        </div>
+        <div *ngSwitchDefault>Exception</div>
+      </ng-container>
+  </ul>
+</ng-container>
+
+<ng-template #cardView>
+  <div class="card-container" [ngStyle]="{'text-align': 'center'}">
+    <app-card *ngFor="let item of obj" [obj]="item"></app-card>
+  </div>
+</ng-template>
+<button (click)="toggleView()">Змінити відображення</button>

@@ -1,0 +1,4 @@
+<p>footer works!</p>
+<ul>
+  <li  *ngFor="let menuObject of menuObjects" (click)="activateUpdateObject(menuObject)" [ngClass]="{active: menuObject.active}">{{menuObject.title}}</li>
+</ul>

@@ -1,0 +1,22 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img
+      src="assets/logo.jpg"
+      width="50"
+      height="50"
+      class="d-inline-block align-top"
+      alt=""
+      (click)="setVisible()"
+    />
+    Bootstrap
+  </a>
+  <ul>
+    <li  *ngFor="let menuObject of menuObjects" (click)="activateUpdateObject(menuObject)" [ngClass]="{active: menuObject.active}">{{menuObject.title}}</li>
+  </ul>
+</nav>
+
+<ng-container *ngIf="isVisible">
+  <div [ngStyle]="{ 'font-size': '36px' }">{{greeting}}</div>
+</ng-container>
+
